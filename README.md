@@ -1,4 +1,4 @@
-H1 todo
+Todo
 ====
 An Angular.js todo list exercise
 
