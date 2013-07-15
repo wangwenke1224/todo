@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todolistapp" >
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>TODO Assignment</title>
+
+    <!-- Components load end -->
+    <link rel="stylesheet" type="text/css" href="styles/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/css/jquery-ui-1.10.2.custom.css">
+    <link rel="stylesheet" type="text/css" href="styles/css/main.css">
+
+</head>
+<body ng-controller="TodoController">
+	<div class="container">
+		<!-- Todo list -->
+		<section id="todolist">
+			<!-- Todo list header -->
+			<header>
+				<form ng-submit="addTodo()" >
+					<input id="newtodo" type="text" ng-model="newTodo" placeholder="What needs to be done?"/>
+				</form>
+			</header>
+			<!-- Todo list header end -->
+			<!-- Todos -->
+			<section ng-show="todos.length">
+				<ul id="todos">
+					<li ng-repeat="todo in todos | orderBy:'createdate':true" ng-class="{editing: todo == editingTodo}" class="todo">
+						
+						<div>
+							<input type="checkbox" class="complete" ng-model="todo.completed" />
+							<p class="completed-{{todo.completed}}" ng-dblclick="editTodo(todo)" >{{todo.name}}</p>
+							<span>{{todo.createdatedisplay}}</span>
+						</div>
+						<form ng-submit="updateTodo(todo)">
+							<input type="text" class="edit" ng-model="todo.name" ng-blur="updateTodo(todo)" ng-esc="revertTodo(todo)"/>
+						</form>
+					</li>
+				</ul>
+			</section>
+			<!-- Todos end -->
+			<!-- Todo list footer -->
+			<footer>
+				<button class="btn" ng-click="removeCompleted()"  ng-show="todos.length">Completed</button>
+			</footer>
+			<!-- Todo list footer end -->
+		</section>
+		<!-- Todo list end -->
+		<footer>Double-click to edit a todo</footer>
+	</div>
+	<!-- Container end -->
+	<!-- Loading basic frameworks and additional plugins -->
+	<script type="text/javascript" src='scripts/vendor/jquery-1.9.1/jquery-1.9.1.min.js'></script>
+	<script type="text/javascript" src='scripts/vendor/jquery-1.9.1/jquery-migrate-1.1.1.min.js'></script>
+	<script type="text/javascript" src='scripts/vendor/bootstrap-2.3.1/bootstrap.min.js'></script>
+	<script type="text/javascript" src='scripts/vendor/jquery-ui-1.10.2/jquery-ui-1.10.2.custom.min.js'></script>
+	<script type="text/javascript" src="scripts/vendor/underscore-1.4.4/underscore.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<!-- Frameworks part end -->
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/todoController.js"></script>
+	<script type="text/javascript" src="scripts/todoDirective.js"></script>
+	<script type="text/javascript" src="scripts/todoFilter.js"></script>
+	<script type="text/javascript" src="scripts/todoStorage.js"></script>
+</body>
+</html>
