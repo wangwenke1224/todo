@@ -29,7 +29,7 @@
 						<div>
 							<input type="checkbox" class="complete" ng-model="todo.completed" />
 							<p class="completed-{{todo.completed}}" ng-dblclick="editTodo(todo)" >{{todo.name}}</p>
-							<span>{{todo.createdatedisplay}}</span>
+							<span>{{todo.createdate | calendar:createdate}}</span>
 						</div>
 						<form ng-submit="updateTodo(todo)">
 							<input type="text" class="edit" ng-model="todo.name" ng-blur="updateTodo(todo)" ng-esc="revertTodo(todo)"/>

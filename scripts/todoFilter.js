@@ -1,6 +1,6 @@
 todolistapp.filter('calendar',function(){
-	return function(){
-		return moment().calendar();
+	return function(date){
+		return moment(date).calendar();
 	};
 });
 
