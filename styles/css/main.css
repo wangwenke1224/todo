@@ -17,7 +17,7 @@ form, #newtodo, #todos, .todo p, #todos li .edit {
 
 
 #newtodo, #todos li .edit{
-	width: 440px;
+	width: 439px;
 	height: 17px;
 	outline: none;
   	border:none;
@@ -76,13 +76,13 @@ header, .todo {
 /* complete checkbox */
 .todo .complete { 
 	position: absolute;
-	height: 36px;
+	/*height: 36px;
 	width: 36px;
-	text-align: center;
+*/	text-align: center;
 	margin: auto 0;
 	top: 0;
 	bottom: 0;
-	left: 9px;
+	left: 12px;
 }
 
 /* edit todo input */
@@ -121,11 +121,13 @@ footer {
 	color: #ccc;
 	font-size: 10px;
 	text-align: center;
+	margin-top: 10px;
 }
 
 #todolist footer {
 	background-color: #ccc;
 	padding: 9px 5px;
 	text-align: right;
+	margin-top: 0;
 }
 
